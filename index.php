@@ -1,5 +1,10 @@
 <?php
     if (!empty($_POST)) {
+        if (!(isset($_POST['username']) && isset($_POST['password']) && isset($_FILES['image']))) {
+            echo "Dados ausentes.";
+            exit();
+        }
+
         $diretorioDestino = "uploads/";
 
         $arquivoDestino   = $diretorioDestino . basename($_FILES["image"]["name"]);
